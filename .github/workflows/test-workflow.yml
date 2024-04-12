@@ -48,11 +48,4 @@ jobs:
       #    registry: docker.io
       #    username: ${{ secrets.DOCKER_HUB_USERNAME }}
       #    password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
-  deployment:
-    runs-on: ubuntu-latest
-    environment: dev
-    steps:
-      - name: deloy
-        run: echo "My client1 is ${{ vars.CLIENT_1 }} "
     
