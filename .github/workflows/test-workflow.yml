@@ -28,17 +28,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       - name: Set version
         run: source set-version.sh
 
-      # Runs a set of commands using the runners shell
+      # Runs a set of co
       - name: Run a multi-line script
         run: |
-          echo "App name: ${{ vars.APP_NAME}}, Project name: ${{ env.PROJECT_NAME }}, Project creator: ${{ env.PROJECT_CREATOR }}"
+          echo "App name: ${{ vars.APP_NAME }}, Project name: ${{ env.PROJECT_NAME }}, Project creator: ${{ env.PROJECT_CREATOR }}"
           echo test, and deploy your project.
 
       #- name: Build docker image and push
@@ -48,11 +44,4 @@ jobs:
       #    registry: docker.io
       #    username: ${{ secrets.DOCKER_HUB_USERNAME }}
       #    password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
-  deployment:
-    runs-on: ubuntu-latest
-    environment: dev
-    steps:
-      - name: deloy
-        run: echo "My client1 is ${{ vars.CLIENT_1 }} "
     
