@@ -45,13 +45,5 @@ jobs:
       #    username: ${{ secrets.DOCKER_HUB_USERNAME }}
       #    password: ${{ secrets.DOCKER_HUB_PASSWORD }}
      
-  ReuseableMatrixJobForDeployment:
-    needs: build
-    strategy:
-      matrix:
-        target: [dev, test]
-    uses: .github/workflows/deploy.yml
-    with:
-        target: ${{ matrix.target }}
       
     
