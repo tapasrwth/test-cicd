@@ -19,6 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+      PROJECT_CREATOR: ${{ vars.PROJECT_CREATOR }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,13 +38,21 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo "App name: ${{ vars.APP_NAME}}"
+          echo "App name: ${{ vars.APP_NAME}}, Project name: ${{ env.PROJECT_NAME }}, Project creator: ${{ env.PROJECT_CREATOR }}"
           echo test, and deploy your project.
 
-  #deployment:
-    #runs-on: ubuntu-latest
-    #environment: dev
-    #steps:
-      #- name: deloy
-        #run: echo "My client1 is ${{ vars.CLIENT_1 }} "
+      #- name: Build docker image and push
+      #  uses: mr-smithers-excellent/docker-build-push@v6
+      #  with:
+      #    image: docker-hub-repo/test-cicd-imagename
+      #    registry: docker.io
+      #    username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #    password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+  deployment:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: deloy
+        run: echo "My client1 is ${{ vars.CLIENT_1 }} "
     
