@@ -10,24 +10,12 @@ on:
 jobs:
   deployment-dev:
     runs-on: ubuntu-latest
-    environment: dev
-    if:  inputs.target-env == 'dev'
+    environment:
+      name: ${ { inputs.target-env } }
     steps:
         - name: checkout
           uses: actions/checkout@v3
 
-        - name: deloyment to dev
-          run: echo "My client1 is ${{ vars.CLIENT_1 }} "
-
-
-  deployment-test:
-    runs-on: ubuntu-latest
-    environment: test
-    if:  inputs.target-env == 'test'
-    steps:
-        - name: checkout
-          uses: actions/checkout@v3
-
-        - name: deloyment to test
+        - name: deloyment
           run: echo "My client1 is ${{ vars.CLIENT_1 }} "
 
