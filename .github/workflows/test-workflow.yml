@@ -35,5 +35,13 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
+          echo "App name: ${{ var.APP_NAME}}"
           echo test, and deploy your project.
+
+  deployment:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: deloy
+        run: echo "My client1 is ${{ var.CLIENT_1 }} "
+    
