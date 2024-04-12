@@ -45,13 +45,13 @@ jobs:
       #    username: ${{ secrets.DOCKER_HUB_USERNAME }}
       #    password: ${{ secrets.DOCKER_HUB_PASSWORD }}
      
-  ReuseableMatrixJobForDeployment:
-    needs: build
-    strategy:
-      matrix:
-        target: [dev, test]
-    uses: tapasrwth/test-cicd/.github/workflows/deploy.yml@main
-    with:
-      target: ${{ matrix.target }}
+  # ReuseableMatrixJobForDeployment:
+  #   needs: build
+  #   strategy:
+  #     matrix:
+  #       target: [dev, test]
+  #   uses: tapasrwth/test-cicd/.github/workflows/deploy.yml@main 
+  #   with:
+  #     target: ${{ matrix.target }}
       
     
