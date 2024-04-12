@@ -50,7 +50,7 @@ jobs:
     strategy:
       matrix:
         target: [dev, test]
-    uses: ./.github/workflows/deploy.yml
+    uses: .github/workflows/deploy.yml
     with:
         target: ${{ matrix.target }}
       
