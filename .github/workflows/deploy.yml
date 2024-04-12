@@ -8,14 +8,24 @@ on:
           required: true
 
 jobs:
-  deployment:
+  deployment-dev:
     runs-on: ubuntu-latest
-    environment: ${ { inputs.target-env } }
+    environment: dev
     steps:
         - name: checkout
           uses: actions/checkout@v3
 
-        - name: deloyment to ${ { inputs.target-env } }
+        - name: deloyment to dev
           run: echo "My client1 is ${{ vars.CLIENT_1 }} "
 
+
+  deployment-test:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+        - name: checkout
+          uses: actions/checkout@v3
+
+        - name: deloyment to test
+          run: echo "My client1 is ${{ vars.CLIENT_1 }} "
 
